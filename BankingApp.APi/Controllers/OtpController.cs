@@ -22,7 +22,7 @@ namespace BankingApp.Controllers
             var otp = await _otpService.GenerateOtpAsync(userId);
 
             // Here you would normally send it via SMS/email
-            Log.Information("OTP GENERATED for user {UserId} | OTP={Otp}", userId, otp);
+            Log.Information("OTP GENERATED for user {UserId} ", userId);
 
             return Ok(new { Message = "OTP generated successfully", Otp = otp });
         }
