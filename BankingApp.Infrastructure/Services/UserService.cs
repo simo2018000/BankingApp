@@ -80,8 +80,8 @@ namespace BankingApp.Infrastructure.Services
             user.Username = userDto.Username;
             user.PhoneNumber = userDto.PhoneNumber;
             user.Email = userDto.Email;
-            user.Role = userDto.Role;
             user.IsActive = userDto.IsActive;
+            // Role is intentionally excluded — use a dedicated admin endpoint to change roles
 
             await _context.SaveChangesAsync();
             return true;
