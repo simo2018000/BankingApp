@@ -1,6 +1,6 @@
 ﻿using BankingApp.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.Data;
+using BankingApp.Shared.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
