@@ -1,0 +1,12 @@
+﻿# Build output
+**/bin/
+**/obj/
+**/logs/
+
+# User secrets
+**/appsettings.secrets.json
+
+# Visual Studio
+**/.vs/
+*.user
+*.rar
