@@ -1,0 +1,12 @@
+C:\Users\mohemed\source\repos\BankingApp.Shared\bin\Debug\net8.0\BankingApp.Shared.deps.json
+C:\Users\mohemed\source\repos\BankingApp.Shared\bin\Debug\net8.0\BankingApp.Shared.dll
+C:\Users\mohemed\source\repos\BankingApp.Shared\bin\Debug\net8.0\BankingApp.Shared.pdb
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.csproj.AssemblyReference.cache
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.AssemblyInfoInputs.cache
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.AssemblyInfo.cs
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.csproj.CoreCompileInputs.cache
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.dll
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\refint\BankingApp.Shared.dll
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\BankingApp.Shared.pdb
+C:\Users\mohemed\source\repos\BankingApp.Shared\obj\Debug\net8.0\ref\BankingApp.Shared.dll

@@ -1,0 +1,12 @@
+C:\Users\mohemed\source\repos\BankingApp.Domain\bin\Debug\net8.0\BankingApp.Domain.deps.json
+C:\Users\mohemed\source\repos\BankingApp.Domain\bin\Debug\net8.0\BankingApp.Domain.dll
+C:\Users\mohemed\source\repos\BankingApp.Domain\bin\Debug\net8.0\BankingApp.Domain.pdb
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.csproj.AssemblyReference.cache
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.AssemblyInfoInputs.cache
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.AssemblyInfo.cs
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.dll
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\refint\BankingApp.Domain.dll
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\BankingApp.Domain.pdb
+C:\Users\mohemed\source\repos\BankingApp.Domain\obj\Debug\net8.0\ref\BankingApp.Domain.dll
