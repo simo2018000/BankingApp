@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BankingApp.Shared.DTOs; // Uses your existing LoginRequest model
 using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BankingApp.APi.Controllers
 {
+    [Authorize] // Ensure only authenticated users can access this controller (optional for simulation)
     [Route("api/[controller]")]
     [ApiController]
     public class SecurityController : ControllerBase

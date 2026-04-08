@@ -1,10 +1,12 @@
 ﻿using BankingApp.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
 namespace BankingApp.Controllers
 {
+    [Authorize] // Ensure only authenticated users can access this controller (optional for simulation)
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

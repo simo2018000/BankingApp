@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BankingApp.Shared.DTOs;
 using BankingApp.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BankingApp.API.Controllers
 {
+    [Authorize] // Ensure only authenticated users can access this controller
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BankingApp.Shared.DTOs;
 using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
-namespace BamkingApp.Controllers
+namespace BankingApp.Controllers
 {
+    [Authorize] // Assure que seuls les utilisateurs authentifiés peuvent accéder à ce controller
     [Route("api/[controller]")]
     [ApiController]
     public class SecurityController : ControllerBase
