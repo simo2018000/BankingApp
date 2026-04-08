@@ -1,4 +1,6 @@
-using BankingApp.Application.Interfaces;
+using BankingApp.Domain.Exceptions;
+
+using Bank  ingApp.Application.Interfaces;
 using BankingApp.Infrastructure.Persistence;
 using BankingApp.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -93,6 +95,25 @@ try
     app.UseAuthorization();
 
     app.MapControllers();
+    app.UseExceptionHandler(errorApp =>
+    {
+        errorApp.Run(async context =>
+        {
+            var error = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>();
+            context.Response.ContentType = "application/json";
+
+            if (error?.Error is NotFoundException)
+            {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsJsonAsync(new { error = error.Error.Message });
+            }
+            else
+            {
+                context.Response.StatusCode = 500;
+                await context.Response.WriteAsJsonAsync(new { error = "An unexpected error occurred." });
+            }
+        });
+    });
 
     app.Run();
 }

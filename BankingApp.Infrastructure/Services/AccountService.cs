@@ -1,5 +1,6 @@
 ﻿using BankingApp.Application.Interfaces;
 using BankingApp.Domain.Entities;
+using BankingApp.Domain.Exceptions;
 using BankingApp.Infrastructure.Persistence;
 using BankingApp.Shared.DTOs;
 
@@ -35,7 +36,7 @@ public class AccountService : IAccountService
         // Load user from DB (required)
         var user = await _context.Users.FindAsync(accountDto.UserId);
         if (user == null)
-            throw new Exception("User not found");
+            throw new NotFoundException("User", accountDto.UserId);
 
         var account = new Account
         {
