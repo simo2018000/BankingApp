@@ -1,6 +1,5 @@
+using BankingApp.Application.Interfaces;
 using BankingApp.Domain.Exceptions;
-
-using Bank  ingApp.Application.Interfaces;
 using BankingApp.Infrastructure.Persistence;
 using BankingApp.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,15 +8,13 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Formatting.Compact;
 
-// --- 1. CONFIGURATION SERILOG (SIEM) ---
-// On configure le logger pour écrire en JSON dans le dossier logs
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File(
-        new CompactJsonFormatter(), // Format JSON critique pour QRadar
-        "logs/bankapi.json",        // Chemin du fichier
+        new CompactJsonFormatter(),
+        "logs/bankapi.json",
         rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
@@ -25,17 +22,13 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    // --- 2. ACTIVER SERILOG ---
     builder.Host.UseSerilog();
 
-    // Add services to the container.
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "BankingApp API", Version = "v1" });
-
-        // Configuration Swagger pour JWT (Optionnel mais pratique)
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Description = "JWT Authorization header using the Bearer scheme.",
@@ -56,45 +49,34 @@ try
         });
     });
 
-    // Database Context
     builder.Services.AddDbContext<BankingDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-    // Services Métiers
     builder.Services.AddScoped<IAccountService, AccountService>();
     builder.Services.AddScoped<IOtpService, OtpService>();
     builder.Services.AddScoped<IUserService, UserService>();
 
-    // Authentication
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
-            // Configuration JWT basique pour le dev
-            options.Authority = "https://localhost:5001"; // A adapter selon votre config
+            options.Authority = "https://localhost:5001";
             options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
             {
                 ValidateIssuer = false,
                 ValidateAudience = false,
                 ValidateLifetime = true,
-                ValidateIssuerSigningKey = false // A sécuriser en prod !
+                ValidateIssuerSigningKey = false
             };
         });
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();
     }
 
-    app.UseHttpsRedirection();
-
-    app.UseAuthentication();
-    app.UseAuthorization();
-
-    app.MapControllers();
     app.UseExceptionHandler(errorApp =>
     {
         errorApp.Run(async context =>
@@ -115,11 +97,16 @@ try
         });
     });
 
+    app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.MapControllers();
+
     app.Run();
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "L'application a crashé au démarrage");
+    Log.Fatal(ex, "L'application a crashed au démarrage");
 }
 finally
 {
